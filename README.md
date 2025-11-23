@@ -30,7 +30,7 @@ Tidak ada proses instalasi yang rumit. Cukup ikuti langkah-langkah berikut:
 1.  **Clone atau Unduh Proyek**
     Jika ini adalah repositori Git, Anda bisa melakukan clone:
     ```bash
-    git clone [URL-repositori-Anda]
+    git clone https://github.com/jerico-c/login/
     ```
     Atau, cukup unduh file `login.html`.
 
