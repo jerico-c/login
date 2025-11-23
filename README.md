@@ -50,7 +50,7 @@ Struktur proyek ini sangat sederhana, hanya terdiri dari satu file:
 
 Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Berikut adalah beberapa ide untuk pengembangan selanjutnya:
 
--   [ ] **Validasi Frontend dengan JavaScript**:
+-   [x] **Validasi Frontend dengan JavaScript**:
     -   Menambahkan validasi real-time untuk memeriksa format email.
     -   Memberi tahu pengguna jika password terlalu pendek.
     -   Menampilkan pesan error yang lebih informatif.
