@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Login Sederhana</title>
+    <title>Form Login dengan Validasi</title>
     <style>
-        /* Mengatur dasar halaman */
+        /* --- CSS Dasar (Sama seperti sebelumnya) --- */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
             display: flex;
             justify-content: center;
@@ -16,7 +16,6 @@
             margin: 0;
         }
 
-        /* Wadah utama untuk form */
         .login-container {
             background-color: #ffffff;
             padding: 30px;
@@ -26,36 +25,35 @@
             text-align: center;
         }
 
-        /* Judul Form */
         .login-container h2 {
             margin-bottom: 25px;
             color: #333;
         }
 
-        /* Grup untuk setiap label dan input */
         .input-group {
             margin-bottom: 20px;
             text-align: left;
+            position: relative; /* Penting untuk posisi pesan error */
         }
 
-        /* Label untuk input */
         .input-group label {
             display: block;
             margin-bottom: 5px;
             color: #555;
             font-weight: bold;
+            font-size: 14px;
         }
 
-        /* Kolom input */
         .input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd; /* Border sedikit lebih tebal agar perubahan warna terlihat */
             border-radius: 5px;
-            box-sizing: border-box; /* Agar padding tidak merusak lebar elemen */
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        /* Tombol Login */
         button {
             width: 100%;
             padding: 12px;
@@ -69,31 +67,175 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Efek saat kursor mouse di atas tombol */
         button:hover {
             background-color: #0056b3;
+        }
+
+        /* --- CSS Tambahan untuk Validasi --- */
+        
+        /* Style untuk pesan error */
+        .input-group small {
+            color: #e74c3c;
+            font-size: 12px;
+            visibility: hidden; /* Tersembunyi secara default */
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Kelas .error: Border merah & pesan muncul */
+        .input-group.error input {
+            border-color: #e74c3c;
+        }
+        
+        .input-group.error small {
+            visibility: visible;
+        }
+
+        /* Kelas .success: Border hijau */
+        .input-group.success input {
+            border-color: #2ecc71;
         }
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <form action="#" method="post">
-            <h2>Selamat Datang!</h2>
+        <form id="loginForm" action="#" method="post" novalidate>
+            <h2>Masuk Akun</h2>
             
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Masukkan username Anda" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="contoh@email.com" autocomplete="off">
+                <small>Pesan error akan muncul di sini</small>
             </div>
             
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+                <input type="password" id="password" name="password" placeholder="Minimal 8 karakter">
+                <small>Pesan error akan muncul di sini</small>
             </div>
             
             <button type="submit">Login</button>
         </form>
     </div>
+
+    <script>
+        // 1. Mengambil elemen dari DOM (Document Object Model)
+        const form = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        // 2. Fungsi untuk menampilkan error
+        // Fungsi ini menambahkan kelas 'error' dan menghapus 'success'
+        const showError = (input, message) => {
+            const inputGroup = input.parentElement; // Mengambil elemen .input-group
+            const small = inputGroup.querySelector('small'); // Mengambil elemen <small> di dalamnya
+            
+            inputGroup.className = 'input-group error'; // Tambah kelas CSS error
+            small.innerText = message; // Ubah teks pesan error
+        };
+
+        // 3. Fungsi untuk menampilkan sukses
+        // Fungsi ini menambahkan kelas 'success' dan menghapus 'error'
+        const showSuccess = (input) => {
+            const inputGroup = input.parentElement;
+            inputGroup.className = 'input-group success';
+        };
+
+        // 4. Fungsi Validasi Email (Menggunakan Regex sederhana)
+        const isValidEmail = (email) => {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        };
+
+        // 5. Logika Validasi Utama
+        const checkInputs = () => {
+            // Ambil nilai dari input dan hapus spasi di awal/akhir
+            const emailValue = emailInput.value.trim();
+            const passwordValue = passwordInput.value.trim();
+            let isFormValid = true; // Penanda status form
+
+            // --- Validasi Email ---
+            if(emailValue === '') {
+                showError(emailInput, 'Email tidak boleh kosong');
+                isFormValid = false;
+            } else if (!isValidEmail(emailValue)) {
+                showError(emailInput, 'Format email tidak valid (harus ada @ dan .)');
+                isFormValid = false;
+            } else {
+                showSuccess(emailInput);
+            }
+
+            // --- Validasi Password ---
+            if(passwordValue === '') {
+                showError(passwordInput, 'Password tidak boleh kosong');
+                isFormValid = false;
+            } else if (passwordValue.length < 8) {
+                showError(passwordInput, `Password kurang ${8 - passwordValue.length} karakter lagi`);
+                isFormValid = false;
+            } else {
+                showSuccess(passwordInput);
+            }
+
+            return isFormValid;
+        };
+
+        // 6. Event Listener: Real-time feedback saat mengetik
+        // 'input' event mentrigger fungsi setiap kali user mengetik satu karakter
+        emailInput.addEventListener('input', () => {
+            // Kita panggil checkInputs, tapi hanya untuk visual, tidak submit
+            const emailValue = emailInput.value.trim();
+            if (isValidEmail(emailValue)) {
+                showSuccess(emailInput);
+            } else if (emailValue !== '') {
+                // Opsional: Kita bisa membiarkan kosong saat mengetik, atau langsung error
+                // Di sini kita cek regex
+                 // Jangan tampilkan error merah mencolok saat baru mengetik 1 huruf, 
+                 // tapi untuk demo ini kita biarkan fungsi checkInputs menangani logika full jika diinginkan.
+                 // Untuk UX lebih halus, biasanya validasi ketat dilakukan saat 'blur' (pindah kursor).
+            }
+        });
+
+        // Agar lebih responsif, kita gunakan event 'input' khusus untuk masing-masing field
+        emailInput.addEventListener('input', function() {
+            const emailValue = emailInput.value.trim();
+            if(emailValue === '') {
+                // Hapus status jika kosong (opsional)
+                emailInput.parentElement.className = 'input-group';
+            } else if (!isValidEmail(emailValue)) {
+                showError(emailInput, 'Email tidak valid');
+            } else {
+                showSuccess(emailInput);
+            }
+        });
+
+        passwordInput.addEventListener('input', function() {
+            const passwordValue = passwordInput.value.trim();
+            if(passwordValue === '') {
+                 passwordInput.parentElement.className = 'input-group';
+            } else if (passwordValue.length < 8) {
+                showError(passwordInput, 'Password terlalu pendek');
+            } else {
+                showSuccess(passwordInput);
+            }
+        });
+
+
+        // 7. Event Listener: Saat Tombol Login ditekan
+        form.addEventListener('submit', function(e) {
+            // Mencegah form dikirim ke server dulu
+            e.preventDefault();
+
+            // Cek semua input lagi
+            const isValid = checkInputs();
+
+            if(isValid) {
+                alert("Data valid! Form siap dikirim.");
+                // Di sini nanti tempat kode untuk mengirim data ke Backend
+                // form.submit(); 
+            }
+        });
+    </script>
 
 </body>
 </html>
