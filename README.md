@@ -55,7 +55,7 @@ Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Beriku
     -   Memberi tahu pengguna jika password terlalu pendek.
     -   Menampilkan pesan error yang lebih informatif.
 
--   [ ] **Integrasi Backend**:
+-   [x] **Integrasi Backend**:
     -   Menghubungkan form ke server (misalnya dengan **Node.js/Express**, **PHP**, atau **Python/Flask**).
     -   Membuat sistem otentikasi untuk memverifikasi username dan password dengan database.
 
