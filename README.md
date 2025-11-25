@@ -59,7 +59,7 @@ Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Beriku
     -   Menghubungkan form ke server (misalnya dengan **Node.js/Express**, **PHP**, atau **Python/Flask**).
     -   Membuat sistem otentikasi untuk memverifikasi username dan password dengan database.
 
--   [ ] **Desain Responsif**:
+-   [x] **Desain Responsif**:
     -   Menggunakan **CSS Media Queries** agar tampilan tetap optimal di perangkat mobile dan tablet.
 
 -   [ ] **Fitur Tambahan**:
