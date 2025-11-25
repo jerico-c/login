@@ -4,96 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Login dengan Validasi</title>
-    <style>
-        /* --- CSS Dasar (Sama seperti sebelumnya) --- */
+<style>
+        /* --- 1. Reset Dasar --- */
+        * {
+            box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
+            
+            /* Flexbox untuk menengahkan konten */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            
+            /* Gunakan min-height agar bisa di-scroll jika layar hp pendek/landscape */
+            min-height: 100vh; 
             margin: 0;
+            padding: 20px; /* Padding body agar di HP form tidak nempel tepi layar */
         }
 
+        /* --- 2. Container Utama (Responsif) --- */
         .login-container {
             background-color: #ffffff;
-            padding: 30px;
+            padding: 40px 30px; /* Padding atas/bawah lebih besar di desktop */
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 320px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            
+            /* KUNCI RESPONSIF DI SINI */
+            width: 100%;        /* Lebar mengikuti layar */
+            max-width: 400px;   /* Tapi jangan lebih lebar dari 400px */
+            
             text-align: center;
         }
 
         .login-container h2 {
             margin-bottom: 25px;
             color: #333;
+            font-size: 24px;
         }
 
+        /* --- 3. Input Groups --- */
         .input-group {
             margin-bottom: 20px;
             text-align: left;
-            position: relative; /* Penting untuk posisi pesan error */
+            position: relative;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #555;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 14px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd; /* Border sedikit lebih tebal agar perubahan warna terlihat */
-            border-radius: 5px;
-            box-sizing: border-box;
+            padding: 12px; /* Area sentuh jari lebih nyaman */
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px; /* Font size 16px mencegah zoom otomatis di iPhone */
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
+        /* Style Validasi (Sama seperti sebelumnya) */
+        .input-group small {
+            color: #e74c3c;
+            font-size: 12px;
+            visibility: hidden;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .input-group.error input { border-color: #e74c3c; }
+        .input-group.error small { visibility: visible; }
+        .input-group.success input { border-color: #2ecc71; }
+
+        /* --- 4. Tombol --- */
         button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
         button:hover {
             background-color: #0056b3;
         }
-
-        /* --- CSS Tambahan untuk Validasi --- */
         
-        /* Style untuk pesan error */
-        .input-group small {
-            color: #e74c3c;
-            font-size: 12px;
-            visibility: hidden; /* Tersembunyi secara default */
-            margin-top: 5px;
-            display: block;
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
         }
 
-        /* Kelas .error: Border merah & pesan muncul */
-        .input-group.error input {
-            border-color: #e74c3c;
-        }
-        
-        .input-group.error small {
-            visibility: visible;
-        }
+        /* --- 5. MEDIA QUERIES (Khusus HP) --- */
+        /* Kode di dalam sini hanya aktif jika lebar layar di bawah 480px */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px; /* Kurangi jarak tepi di body */
+            }
 
-        /* Kelas .success: Border hijau */
-        .input-group.success input {
-            border-color: #2ecc71;
+            .login-container {
+                padding: 25px 20px; /* Perkecil padding dalam container */
+                box-shadow: none;   /* Opsional: Hilangkan bayangan di HP agar terlihat lebih flat/bersih */
+                border: 1px solid #eee; /* Ganti bayangan dengan garis tipis */
+            }
+
+            .login-container h2 {
+                font-size: 22px; /* Perkecil sedikit judul */
+            }
+            
+            button {
+                padding: 12px; /* Sesuaikan ukuran tombol */
+            }
         }
     </style>
 </head>
