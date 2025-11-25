@@ -222,17 +222,55 @@
 
 
         // 7. Event Listener: Saat Tombol Login ditekan
-        form.addEventListener('submit', function(e) {
-            // Mencegah form dikirim ke server dulu
-            e.preventDefault();
+        // 7. Event Listener: Saat Tombol Login ditekan
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Mencegah reload halaman
 
-            // Cek semua input lagi
-            const isValid = checkInputs();
+            const isValid = checkInputs(); // Validasi frontend dulu
 
             if(isValid) {
-                alert("Data valid! Form siap dikirim.");
-                // Di sini nanti tempat kode untuk mengirim data ke Backend
-                // form.submit(); 
+                // Ambil data
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+
+                // Ubah teks tombol jadi loading
+                const submitBtn = document.querySelector('button');
+                const originalBtnText = submitBtn.innerText;
+                submitBtn.innerText = "Memproses...";
+                submitBtn.disabled = true;
+
+                try {
+                    // Kirim data ke Backend Node.js
+                    const response = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    const data = await response.json();
+
+                    if(data.success) {
+                        // Jika Login Sukses
+                        alert(data.message);
+                        // Redirect ke dashboard (contoh)
+                        // window.location.href = '/dashboard.html'; 
+                    } else {
+                        // Jika Gagal (Password salah / Email tidak ada)
+                        // Tampilkan error di input password atau email (opsional)
+                        // Untuk sekarang kita pakai alert dulu agar jelas
+                        alert("Gagal: " + data.message);
+                    }
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert("Terjadi kesalahan koneksi ke server.");
+                } finally {
+                    // Kembalikan tombol seperti semula
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }
             }
         });
     </script>
