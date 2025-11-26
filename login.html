@@ -349,15 +349,17 @@
                     const data = await response.json();
 
                     if(data.success) {
-                        // Jika Login Sukses
+                        // --- LOGIKA BARU DI SINI ---
+                        // Jika 'Ingat Saya' dicentang, simpan email ke LocalStorage
+                        if (rememberMeInput.checked) {
+                            localStorage.setItem('savedEmail', email);
+                        } else {
+                            // Jika tidak dicentang, hapus data lama (jika ada)
+                            localStorage.removeItem('savedEmail');
+                        }
+                        
                         alert(data.message);
-                        // Redirect ke dashboard (contoh)
                         // window.location.href = '/dashboard.html'; 
-                    } else {
-                        // Jika Gagal (Password salah / Email tidak ada)
-                        // Tampilkan error di input password atau email (opsional)
-                        // Untuk sekarang kita pakai alert dulu agar jelas
-                        alert("Gagal: " + data.message);
                     }
 
                 } catch (error) {
