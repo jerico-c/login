@@ -62,7 +62,7 @@ Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Beriku
 -   [x] **Desain Responsif**:
     -   Menggunakan **CSS Media Queries** agar tampilan tetap optimal di perangkat mobile dan tablet.
 
--   [ ] **Fitur Tambahan**:
+-   [x] **Fitur Tambahan**:
     -   Menambahkan tautan "Lupa Password?".
     -   Menambahkan checkbox "Ingat Saya" (Remember Me).
 
