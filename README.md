@@ -44,6 +44,7 @@ Struktur proyek ini sangat sederhana, hanya terdiri dari satu file:
 ```
 .
 └── login.html
+└── server.js
 ```
 
 ## 📈 Rencana Pengembangan (Improvement)
