@@ -305,7 +305,19 @@
             }
         });
 
+        // --- A. Logika Remember Me (LocalStorage) ---
+        const rememberMeInput = document.getElementById('rememberMe');
 
+        // Saat halaman dimuat, cek apakah ada data tersimpan
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedEmail = localStorage.getItem('savedEmail');
+            if (savedEmail) {
+                emailInput.value = savedEmail;
+                rememberMeInput.checked = true;
+                // Validasi visual langsung hijau karena sudah terisi
+                showSuccess(emailInput); 
+            }
+        });
         // 7. Event Listener: Saat Tombol Login ditekan
         // 7. Event Listener: Saat Tombol Login ditekan
         form.addEventListener('submit', async function(e) {
