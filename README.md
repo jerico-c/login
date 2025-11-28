@@ -67,6 +67,6 @@ Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Beriku
     -   Menambahkan tautan "Lupa Password?".
     -   Menambahkan checkbox "Ingat Saya" (Remember Me).
 
--   [ ] **Peningkatan Keamanan**:
+-   [x] **Peningkatan Keamanan**:
     -   Mengimplementasikan *hashing* password di sisi server.
     -   Memastikan koneksi menggunakan HTTPS.
