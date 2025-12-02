@@ -14,7 +14,7 @@
     "bcrypt",
     "secure"
   ],
-  "author": "",
+  "author": "jerico",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
