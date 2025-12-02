@@ -1,12 +1,12 @@
 # Form Login Sederhana
 
-![Login Screenshot](screenshot.png)
-
 Sebuah proyek frontend dasar untuk membuat halaman login yang bersih dan modern. Proyek ini dibuat hanya menggunakan HTML dan CSS, dan dirancang sebagai titik awal yang mudah untuk dikembangkan lebih lanjut.
 
 ## 🎨 Tampilan
 
 Halaman ini menampilkan sebuah form login yang terpusat di tengah layar dengan latar belakang abu-abu muda. Form itu sendiri memiliki latar belakang putih, sudut melengkung, dan efek bayangan yang lembut untuk memberikan kesan modern.
+
+![Login Screenshot](screenshot.png)
 
 ## ✨ Fitur
 
