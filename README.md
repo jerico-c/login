@@ -1,75 +1,44 @@
-# Simple Login
+# Simple Login Form
 
+A basic frontend project to create a clean and modern login page. This project is built using only HTML and CSS, designed as an accessible starting point for further development.
 
-Sebuah proyek frontend dasar untuk membuat halaman login yang bersih dan modern. Proyek ini dibuat hanya menggunakan HTML dan CSS, dan dirancang sebagai titik awal yang mudah untuk dikembangkan lebih lanjut.
+## 🎨 Appearance
 
-## 🎨 Tampilan
-
-Halaman ini menampilkan sebuah form login yang terpusat di tengah layar dengan latar belakang abu-abu muda. Form itu sendiri memiliki latar belakang putih, sudut melengkung, dan efek bayangan yang lembut untuk memberikan kesan modern.
+This page features a login form centered on the screen against a light gray background. The form itself utilizes a white background, rounded corners, and soft drop shadows to create a modern aesthetic.
 
 ![Login Screenshot](screenshot.png)
 
-## ✨ Fitur
+## ✨ Features
 
--   **Input Username**: Kolom untuk memasukkan nama pengguna.
--   **Input Password**: Kolom untuk memasukkan kata sandi (karakter disembunyikan).
--   **Tombol Login**: Tombol interaktif dengan efek `hover`.
--   **Validasi Dasar**: Menggunakan atribut `required` dari HTML5 untuk memastikan tidak ada kolom yang kosong.
--   **Desain Minimalis**: Tampilan yang bersih dan terpusat, dibuat sepenuhnya dengan CSS internal.
+-   **Username Input**: Field for entering the username.
+-   **Password Input**: Field for entering the password (characters are masked).
+-   **Login Button**: Interactive button with a `hover` effect.
+-   **Basic Validation**: Uses HTML5 `required` attributes to ensure no fields are left empty.
+-   **Minimalist Design**: A clean, centered layout created entirely with internal CSS.
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Technologies Used
 
-Proyek ini murni menggunakan teknologi dasar web frontend:
+This project purely utilizes basic web frontend technologies:
 
--   **HTML5**: Untuk struktur dan konten form.
--   **CSS3**: Untuk styling, layout, dan tampilan visual.
+-   **HTML5**: For the form structure and content.
+-   **CSS3**: For styling, layout, and visual appearance.
 
-Tidak ada framework atau library eksternal yang digunakan.
+No external frameworks or libraries are used.
 
-## 🚀 Cara Menjalankan
+## 🚀 How to Run
 
-Tidak ada proses instalasi yang rumit. Cukup ikuti langkah-langkah berikut:
+There is no complex installation process. Simply follow these steps:
 
-1.  **Clone atau Unduh Proyek**
-    Jika ini adalah repositori Git, Anda bisa melakukan clone:
+1.  **Clone or Download the Project**
+    If this is a Git repository, you can clone it:
     ```bash
-    git clone https://github.com/jerico-c/login/
+    git clone [https://github.com/jerico-c/login/](https://github.com/jerico-c/login/)
     ```
-    Atau, cukup unduh file `login.html`.
+    Alternatively, simply download the `login.html` file.
 
-2.  **Buka File di Browser**
-    Buka file `login.html` langsung di browser web favorit Anda (seperti Google Chrome, Mozilla Firefox, atau Microsoft Edge).
+2.  **Open the File in a Browser**
+    Open the `login.html` file directly in your favorite web browser (such as Google Chrome, Mozilla Firefox, or Microsoft Edge).
 
-## 📁 Struktur File
+## 📁 File Structure
 
-Struktur proyek ini sangat sederhana, hanya terdiri dari satu file:
-
-```
-.
-└── login.html
-└── server.js
-```
-
-## 📈 Rencana Pengembangan (Improvement)
-
-Form ini sengaja dibuat sederhana agar mudah dipelajari dan dimodifikasi. Berikut adalah beberapa ide untuk pengembangan selanjutnya:
-
--   [x] **Validasi Frontend dengan JavaScript**:
-    -   Menambahkan validasi real-time untuk memeriksa format email.
-    -   Memberi tahu pengguna jika password terlalu pendek.
-    -   Menampilkan pesan error yang lebih informatif.
-
--   [x] **Integrasi Backend**:
-    -   Menghubungkan form ke server (misalnya dengan **Node.js/Express**, **PHP**, atau **Python/Flask**).
-    -   Membuat sistem otentikasi untuk memverifikasi username dan password dengan database.
-
--   [x] **Desain Responsif**:
-    -   Menggunakan **CSS Media Queries** agar tampilan tetap optimal di perangkat mobile dan tablet.
-
--   [x] **Fitur Tambahan**:
-    -   Menambahkan tautan "Lupa Password?".
-    -   Menambahkan checkbox "Ingat Saya" (Remember Me).
-
--   [x] **Peningkatan Keamanan**:
-    -   Mengimplementasikan *hashing* password di sisi server.
-    -   Memastikan koneksi menggunakan HTTPS.
+The project structure is very simple, consisting of the following files:
