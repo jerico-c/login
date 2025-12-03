@@ -42,3 +42,33 @@ There is no complex installation process. Simply follow these steps:
 ## 📁 File Structure
 
 The project structure is very simple, consisting of the following files:
+
+
+.
+└── login.html
+└── server.js
+
+
+## 📈 Development Plan (Roadmap)
+
+This form was intentionally made simple to be easily learned and modified. Below are the implemented features and ideas for future development:
+
+-   [x] **Frontend Validation with JavaScript**:
+    -   Adding real-time validation to check email format.
+    -   Alerting the user if the password is too short.
+    -   Displaying more informative error messages.
+
+-   [x] **Backend Integration**:
+    -   Connecting the form to a server (e.g., with **Node.js/Express**, **PHP**, or **Python/Flask**).
+    -   Creating an authentication system to verify username and password against a database.
+
+-   [x] **Responsive Design**:
+    -   Using **CSS Media Queries** to ensure the display remains optimal on mobile and tablet devices.
+
+-   [x] **Additional Features**:
+    -   Adding a "Forgot Password?" link.
+    -   Adding a "Remember Me" checkbox.
+
+-   [x] **Security Enhancements**:
+    -   Implementing password *hashing* on the server side.
+    -   Ensuring connections use HTTPS.
