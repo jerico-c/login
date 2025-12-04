@@ -45,6 +45,7 @@ The project structure is very simple, consisting of the following files:
 
 .
 └── login.html
+
 └── server.js
 
 
