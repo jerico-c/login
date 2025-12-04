@@ -32,7 +32,7 @@ There is no complex installation process. Simply follow these steps:
 1.  **Clone or Download the Project**
     If this is a Git repository, you can clone it:
     ```bash
-    git clone [https://github.com/jerico-c/login/](https://github.com/jerico-c/login/)
+    git clone https://github.com/jerico-c/login/
     ```
     Alternatively, simply download the `login.html` file.
 
