@@ -34,7 +34,6 @@ There is no complex installation process. Simply follow these steps:
     ```bash
     git clone https://github.com/jerico-c/login/
     ```
-    Alternatively, simply download the `login.html` file.
 
 2.  **Open the File in a Browser**
     Open the `login.html` file directly in your favorite web browser (such as Google Chrome, Mozilla Firefox, or Microsoft Edge).
