@@ -1,6 +1,6 @@
 # Simple Login Form
 
-A basic frontend project to create a clean and modern login page. This project is built using only HTML and CSS, designed as an accessible starting point for further development.
+A basic frontend project to create a clean and modern login page. 
 
 ## 🎨 Appearance
 
